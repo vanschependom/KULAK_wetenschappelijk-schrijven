@@ -1,0 +1,134 @@
+\documentclass{article}
+
+% Dit is de preambule
+
+% Met babel passen we taalspecifieke zaken aan
+% Het argument tussen vierkante haken is optioneel
+% In dit geval moeten we meegeven dat we Nederlands wensen
+\usepackage[dutch]{babel}
+
+% Hyperref maakt hyperlinks van zaken in de inhoudsopgave, voetnoten, citaties, kruisverwijzingen...
+% De rode kaders van de hyperlinks worden niet mee afgedrukt
+\usepackage{hyperref}
+
+\title{Mijn eerste \LaTeX-document aan de Kulak}
+\author{Vincent Van Schependom}
+\date{\today}
+
+
+\begin{document}
+	
+	% Zonder dit zullen de dingen die we gedefinieerd hebben niet verschijnen
+	\maketitle
+	
+	\tableofcontents
+	
+	% Met een sterretje skippen we de nummering van een sectie
+	\section*{Inleiding}
+	
+	% We maken onder andere een referentie aan naar de subsection 'Opsommingen', die we het label 'subsec:opsommingen' gaven.
+	% Dit doen we met het '\ref' commando
+	% Ook gebruiken we het commando '\pageref'
+	In hoofdstuk \ref{sec:einde}, paragraaf \ref{subsec:opsommingen} op pagina \pageref{subsec:opsommingen} gaat het over opsommingen.
+	
+	\section{Het begin}
+	
+	\subsection{Het begin van het begin}
+	
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt dapibus urna, non mattis mauris lobortis eu. Nulla tincidunt orci nec est venenatis, eu cursus leo lobortis. Morbi iaculis bibendum quam, in cursus sapien rutrum sit amet. Duis tincidunt dapibus nisl, faucibus mattis lacus convallis in.
+	
+	Aliquam eleifend faucibus libero. Nam feugiat quis nibh vel fringilla. In hac habitasse platea dictumst. Nunc non efficitur ex, vitae dapibus magna. In et velit mollis, consequat massa at, consectetur elit. In ac pulvinar ipsum. Sed blandit eget sapien sed pretium. Sed et tortor odio. Nam mollis, lacus rhoncus placerat fringilla, augue purus ultricies lectus, tristique pretium est nunc nec turpis. Vivamus et porta est. Cras ac varius arcu. Aliquam pulvinar leo magna, quis euismod lorem sodales in. Fusce eget turpis quis nibh egestas hendrerit a ut eros. Phasellus eget semper sapien.
+	
+	\subsection{Het einde van het begin}
+	
+	Nam mollis, lacus rhoncus placerat fringilla, augue purus ultricies lectus, tristique pretium est nunc nec turpis. Vivamus et porta est. Cras ac varius arcu. Aliquam pulvinar leo magna, quis euismod lorem sodales in. Fusce eget turpis quis nibh egestas hendrerit a ut eros. Phasellus eget semper sapien.
+	
+	\section{Het einde}
+	\label{sec:einde}
+	
+	\subsection{Opsommingen}
+	% Om naar deze subsection 'Opsommingen' te kunnen verwijzen in de inleiding, voegen we een label toe.
+	% Technisch gezien kan het label eender wat zijn, maar een goede naming convention is om er subsec: voor te zetten, aangezien het in dit geval over een subsection gaat.
+	% Het commando '\label' gaat terug in de tekst op zoek naar een object dat genummerd is (section, subsection, equation, figuur, ...)
+	\label{subsec:opsommingen}
+	
+	Er zijn verschillende manieren om opsommingen te maken:
+	
+	\begin{itemize}
+		\item itemize
+		\item description
+		\item enumerate
+	\end{itemize}
+	
+	Het verschil tussen deze methoden is het volgende:
+	
+	\begin{description}
+		\item[itemize] maakt een bolletjeslijst
+		\item[description] maakt een trefwoordenlijst (met een kernwoord ervoor)
+		\item[enumerate] maakt een genummerde lijst
+	\end{description}
+	
+	Voor de volledigheid, kan hieronder nog een enumerate gevonden worden:
+	\begin{enumerate}
+		\item itemize
+		\item description
+		\item enumerate
+	\end{enumerate}
+	
+	\subsection{Uitlijning}
+	
+	Dit is een linkse uitlijning:
+	
+	\begin{flushleft}
+			Aliquam eleifend faucibus libero. Nam feugiat quis nibh vel fringilla. In hac habitasse platea dictumst. Nunc non efficitur ex, vitae dapibus magna. In et velit mollis, consequat massa at, consectetur elit. In ac pulvinar ipsum. Sed blandit eget sapien sed pretium. Sed et tortor odio. Nam mollis, lacus rhoncus placerat fringilla, augue purus ultricies lectus, tristique pretium est nunc nec turpis. Vivamus et porta est. Cras ac varius arcu. Aliquam pulvinar leo magna, quis euismod lorem sodales in. Fusce eget turpis quis nibh egestas hendrerit a ut eros. Phasellus eget semper sapien.
+	\end{flushleft}
+	
+	Dit is een rechtse uitlijning:
+	
+	\begin{flushright}
+			Aliquam eleifend faucibus libero. Nam feugiat quis nibh vel fringilla. In hac habitasse platea dictumst. Nunc non efficitur ex, vitae dapibus magna. In et velit mollis, consequat massa at, consectetur elit. In ac pulvinar ipsum. Sed blandit eget sapien sed pretium. Sed et tortor odio. Nam mollis, lacus rhoncus placerat fringilla, augue purus ultricies lectus, tristique pretium est nunc nec turpis. Vivamus et porta est. Cras ac varius arcu. Aliquam pulvinar leo magna, quis euismod lorem sodales in. Fusce eget turpis quis nibh egestas hendrerit a ut eros. Phasellus eget semper sapien.
+	\end{flushright}
+	
+	Dit is gecentreerde tekst:
+	
+	\begin{center}
+			Aliquam eleifend faucibus libero. Nam feugiat quis nibh vel fringilla. In hac habitasse platea dictumst. Nunc non efficitur ex, vitae dapibus magna. In et velit mollis, consequat massa at, consectetur elit. In ac pulvinar ipsum. Sed blandit eget sapien sed pretium. Sed et tortor odio. Nam mollis, lacus rhoncus placerat fringilla, augue purus ultricies lectus, tristique pretium est nunc nec turpis. Vivamus et porta est. Cras ac varius arcu. Aliquam pulvinar leo magna, quis euismod lorem sodales in. Fusce eget turpis quis nibh egestas hendrerit a ut eros. Phasellus eget semper sapien.
+	\end{center}
+	
+	\subsection{Computercode}
+	
+	\subsubsection{Inline commando's}
+	
+	Weet je wat een \texttt{for}-lus is?
+	
+	% We kunnen het \texttt{} commando niet gebruiken wanneer we bijvoorbeeld de tekst '\section{}' willen displayen.
+	% Hiervoor gebruiken we het commando '\verb'
+	% Verb staat voor verbatim en zal niks proberen compileren
+	% Je moet in plaats van accolades een random symbool kiezen om het begin en einde aan te duiden.
+	% Dit gekozen symbool mag alleen niet voorkomen in de code zelf.
+	Het commando \verb|\section{Sectietitel}| kan gedisplayd worden door middel van het commando \verb|\verb{}|.
+	
+	\subsubsection{Meerdere lijnen}
+	
+	Dit is wat we kunnen doen met de environment \texttt{verbatim}:
+	
+	% We kunnen ditzelfde principe toepasen op een stuk code van meerdere lijnen door middel van de environment \verbatim
+	\begin{verbatim}
+		for (x in lijst) {
+			...
+		}
+	\end{verbatim}
+	
+	Voor hele lange stukken code met bijvoorbeeld lijnnummering, gebruiken we het pakket \texttt{listings}.
+	
+	\subsection{Hyperlinks}
+	
+	% Een hyperlink \href heeft twee argumenten
+	Alle informatie over de studieprogramma's is terug te vinden op de website: \href{https://onderwijsaanbod.kuleuven.be}{\texttt{https://onderwijsaanbod.kuleuven.be}}. Je kan me bereiken  \href{mailto:vincent.vanschependom@student.kuleuven.be}{per mail}.
+	
+	% Met een ster skippen we de nummering van een section
+	\section*{Besluit}
+	
+	\LaTeX\ is cool \footnote{eens je er mee weg bent}!
+	
+\end{document}

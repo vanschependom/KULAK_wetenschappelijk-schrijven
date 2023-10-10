@@ -1,0 +1,187 @@
+\documentclass{article}
+
+% Dit is de preambule
+
+% Met babel passen we taalspecifieke zaken aan
+% Het argument tussen vierkante haken is optioneel
+% In dit geval moeten we meegeven dat we Nederlands wensen
+\usepackage[dutch]{babel}
+
+% Hyperref maakt hyperlinks van zaken in de inhoudsopgave, voetnoten, citaties, kruisverwijzingen...
+% De rode kaders van de hyperlinks worden niet mee afgedrukt
+\usepackage{hyperref}
+
+% Om figuren in te voegen
+\usepackage{graphicx}
+
+\title{Mijn eerste \LaTeX-document aan de Kulak}
+\author{Vincent Van Schependom}
+\date{\today}
+
+
+\begin{document}
+	
+	% Zonder dit zullen de dingen die we gedefinieerd hebben niet verschijnen
+	\maketitle
+	
+	\tableofcontents
+	
+	% Met een sterretje skippen we de nummering van een sectie
+	\section*{Inleiding}
+	
+	% We maken onder andere een referentie aan naar de subsection 'Opsommingen', die we het label 'subsec:opsommingen' gaven.
+	% Dit doen we met het '\ref' commando
+	% Ook gebruiken we het commando '\pageref'
+	In hoofdstuk \ref{sec:einde}, paragraaf \ref{subsec:opsommingen} op pagina \pageref{subsec:opsommingen} gaat het over opsommingen.
+	
+	\section{Het begin}
+	
+	\subsection{Het begin van het begin}
+	
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt dapibus urna, non mattis mauris lobortis eu. Nulla tincidunt orci nec est venenatis, eu cursus leo lobortis. Morbi iaculis bibendum quam, in cursus sapien rutrum sit amet. Duis tincidunt dapibus nisl, faucibus mattis lacus convallis in.
+	
+	Aliquam eleifend faucibus libero. Nam feugiat quis nibh vel fringilla. In hac habitasse platea dictumst. Nunc non efficitur ex, vitae dapibus magna. In et velit mollis, consequat massa at, consectetur elit. In ac pulvinar ipsum. Sed blandit eget sapien sed pretium. Sed et tortor odio. Nam mollis, lacus rhoncus placerat fringilla, augue purus ultricies lectus, tristique pretium est nunc nec turpis. Vivamus et porta est. Cras ac varius arcu. Aliquam pulvinar leo magna, quis euismod lorem sodales in. Fusce eget turpis quis nibh egestas hendrerit a ut eros. Phasellus eget semper sapien.
+	
+	\subsection{Het einde van het begin}
+	
+	Nam mollis, lacus rhoncus placerat fringilla, augue purus ultricies lectus, tristique pretium est nunc nec turpis. Vivamus et porta est. Cras ac varius arcu. Aliquam pulvinar leo magna, quis euismod lorem sodales in. Fusce eget turpis quis nibh egestas hendrerit a ut eros. Phasellus eget semper sapien.
+	
+	\section{Het einde}
+	\label{sec:einde}
+	
+	\subsection{Opsommingen}
+	% Om naar deze subsection 'Opsommingen' te kunnen verwijzen in de inleiding, voegen we een label toe.
+	% Technisch gezien kan het label eender wat zijn, maar een goede naming convention is om er subsec: voor te zetten, aangezien het in dit geval over een subsection gaat.
+	% Het commando '\label' gaat terug in de tekst op zoek naar een object dat genummerd is (section, subsection, equation, figuur, ...)
+	\label{subsec:opsommingen}
+	
+	Er zijn verschillende manieren om opsommingen te maken:
+	
+	\begin{itemize}
+		\item itemize
+		\item description
+		\item enumerate
+	\end{itemize}
+	
+	Het verschil tussen deze methoden is het volgende:
+	
+	\begin{description}
+		\item[itemize] maakt een bolletjeslijst
+		\item[description] maakt een trefwoordenlijst (met een kernwoord ervoor)
+		\item[enumerate] maakt een genummerde lijst
+	\end{description}
+	
+	Voor de volledigheid, kan hieronder nog een enumerate gevonden worden:
+	\begin{enumerate}
+		\item itemize
+		\item description
+		\item enumerate
+	\end{enumerate}
+	
+	\subsection{Uitlijning}
+	
+	Dit is een linkse uitlijning:
+	
+	\begin{flushleft}
+		Aliquam eleifend faucibus libero. Nam feugiat quis nibh vel fringilla. In hac habitasse platea dictumst. Nunc non efficitur ex, vitae dapibus magna. In et velit mollis, consequat massa at, consectetur elit. In ac pulvinar ipsum. Sed blandit eget sapien sed pretium. Sed et tortor odio. Nam mollis, lacus rhoncus placerat fringilla, augue purus ultricies lectus, tristique pretium est nunc nec turpis. Vivamus et porta est. Cras ac varius arcu. Aliquam pulvinar leo magna, quis euismod lorem sodales in. Fusce eget turpis quis nibh egestas hendrerit a ut eros. Phasellus eget semper sapien.
+	\end{flushleft}
+	
+	Dit is een rechtse uitlijning:
+	
+	\begin{flushright}
+		Aliquam eleifend faucibus libero. Nam feugiat quis nibh vel fringilla. In hac habitasse platea dictumst. Nunc non efficitur ex, vitae dapibus magna. In et velit mollis, consequat massa at, consectetur elit. In ac pulvinar ipsum. Sed blandit eget sapien sed pretium. Sed et tortor odio. Nam mollis, lacus rhoncus placerat fringilla, augue purus ultricies lectus, tristique pretium est nunc nec turpis. Vivamus et porta est. Cras ac varius arcu. Aliquam pulvinar leo magna, quis euismod lorem sodales in. Fusce eget turpis quis nibh egestas hendrerit a ut eros. Phasellus eget semper sapien.
+	\end{flushright}
+	
+	Dit is gecentreerde tekst:
+	
+	\begin{center}
+		Aliquam eleifend faucibus libero. Nam feugiat quis nibh vel fringilla. In hac habitasse platea dictumst. Nunc non efficitur ex, vitae dapibus magna. In et velit mollis, consequat massa at, consectetur elit. In ac pulvinar ipsum. Sed blandit eget sapien sed pretium. Sed et tortor odio. Nam mollis, lacus rhoncus placerat fringilla, augue purus ultricies lectus, tristique pretium est nunc nec turpis. Vivamus et porta est. Cras ac varius arcu. Aliquam pulvinar leo magna, quis euismod lorem sodales in. Fusce eget turpis quis nibh egestas hendrerit a ut eros. Phasellus eget semper sapien.
+	\end{center}
+	
+	\subsection{Computercode}
+	
+	\subsubsection{Inline commando's}
+	
+	Weet je wat een \texttt{for}-lus is?
+	
+	% We kunnen het \texttt{} commando niet gebruiken wanneer we bijvoorbeeld de tekst '\section{}' willen displayen.
+	% Hiervoor gebruiken we het commando '\verb'
+	% Verb staat voor verbatim en zal niks proberen compileren
+	% Je moet in plaats van accolades een random symbool kiezen om het begin en einde aan te duiden.
+	% Dit gekozen symbool mag alleen niet voorkomen in de code zelf.
+	Het commando \verb|\section{Sectietitel}| kan gedisplayd worden door middel van het commando \verb|\verb{}|.
+	
+	\subsubsection{Meerdere lijnen}
+	
+	Dit is wat we kunnen doen met de environment \texttt{verbatim}:
+	
+	% We kunnen ditzelfde principe toepasen op een stuk code van meerdere lijnen door middel van de environment \verbatim
+	\begin{verbatim}
+		for (x in lijst) {
+			...
+		}
+	\end{verbatim}
+	
+	Voor hele lange stukken code met bijvoorbeeld lijnnummering, gebruiken we het pakket \texttt{listings}.
+	
+	\subsection{Hyperlinks}
+	
+	% Een hyperlink \href heeft twee argumenten
+	Alle informatie over de studieprogramma's is terug te vinden op de website: \href{https://onderwijsaanbod.kuleuven.be}{\texttt{https://onderwijsaanbod.kuleuven.be}}. Je kan me bereiken  \href{mailto:vincent.vanschependom@student.kuleuven.be}{per mail}.
+	
+	\subsection{Tabellen}
+	
+	In tabel \ref{tabel:inschrijvingen}, kan je irrelevante informatie van twee jaar oud terugvinden.
+	
+	% we kunnen een tabel maken binnen een tabular environment
+	% cols is een verplicht argument voor kolomdefinities
+	% het symbool van de kolom hangt af van de uitlijning van die kolom
+	% kolommen maken we met een ampersand
+	% aan het einde van een rij moet een dubbele backslash
+	% Table is de environment waarin je tabular zet om de tabel te laten floaten
+	\begin{table}
+		\centering
+			\begin{tabular}{l | r r | l}
+			& Man & Vrouw & Totaal  \\ \hline
+			Fysica      & 16  & 4     & 20 \\
+			Informatica & 9   & 1     & 10 \\
+			Wiskunde    & 24  & 3     & 27 \\ \hline
+			Totaal      & 49  & 8     & 57
+		\end{tabular}
+		\caption{Inschrijvingsaantallen aan Kulak per studierichting en geslacht voor het academiejaar 2021-2022.}
+		\label{tabel:inschrijvingen}
+	\end{table}
+	
+	% We hebben voor figuren de package graphicx nodig
+	\subsection{Figuren}
+	
+	Vincent Van Schependom, afgebeeld in figuur \ref{fig:vincent}, bla bla bla...
+	
+	% We laten figuren 'floaten' zodat ze niet naar een andere pagina verspringen ofzo
+	% Daarvoor gebruiken we de environment figure
+	% We zullen moeten verwijzen naar onze figuur
+	% Met een optioneel argument kunnen we de grootte bepalen
+	\begin{figure}
+	\centering
+	\includegraphics[width=.5\textwidth]{vincent}
+	\caption{Vincent Van Schependom, student informatica aan KU Leuven campus KULAK Kortrijk.}
+	\label{fig:vincent}
+	\end{figure}
+	
+	\subsection{Bibliografische informatie}
+	
+	We zoeken eerst een deftig artikel op Google Scholar. Vervolgens klikken we op \texttt{importeren in BibTeX}. Nu maken we een nieuw document aan in dezelfde map waarin we aan het werken zijn. Hierin plakken we de code, die we van Google Scholar hebben gehaald. Dit slaan we op als een \texttt{.bib}-file. mijnbibliografie.bib bevat alle interessante bronnen die we zijn tegengekomen. Alleen die waarnaar we verwijzen, worden afgedrukt. % Om te citeren gebruiken we het commando \cite
+	Een zeer goede handleiding voor \LaTeX is The not so short introduction \cite{oetiker1995not}. Voor Beamer is de user manual \cite{tantau2004user} blijkbaar verplichte kost.
+			
+	% Met een ster skippen we de nummering van een section
+	\section*{Besluit}
+	
+	\LaTeX\ is cool \footnote{eens je er mee weg bent}!
+	
+	% We kiezen unsorted voor onze bibliografische informatie
+	% mijnbibliografie.bib bevat alle interessante bronnen
+	% Alleen die waarnaar we verwijzen, worden afgedrukt.
+	\bibliographystyle{unsrt}
+	\bibliography{mijnbibliografie}
+	
+\end{document}
