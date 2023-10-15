@@ -1,0 +1,213 @@
+\documentclass{article}
+
+\usepackage[dutch]{babel}
+% Packages voor formules
+% Als ge geen optie meegeeft moogt ge usepackage gebruiken met meerdere packages tegelijk
+\usepackage{amssymb, amsthm, amsmath}
+% We willen Bgtan kunnen typen
+\DeclareMathOperator{\Bgtan}{Bgtan}
+\usepackage{siunitx}
+% We stellen de komma in als decimaalteken
+\sisetup{output-decimal-marker={,}}
+\usepackage{mhchem}
+
+\title{Joepie, wiskunde!}
+\author{Vincent Van Schependom}
+\date{Academiejaar 2023-2024}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{Wiskunde-modi}
+	
+	% We openen inline math met \(
+	% We openen display math met \[
+	Een rechte door de punten \((a,b)\) en \((c,d)\) met voorwaarde \(a \neq c\) heeft als vergelijking \[y = \frac{(d-b)}{(c-a)}(x-a)+b\].
+	
+	De formule van Euler (\ref{eq:euler}) werd ontdekt door Euler,
+	% We willen later nog kunnen verwijzen naar deze formule, dus we plaatsen het in een equation environment.
+	% We hangen er ook een label aan.
+	\begin{equation}
+		\label{eq:euler}
+		1+e^{i\pi}=0.
+	\end{equation}
+	
+	Als we wiskunde gebruiken die over verschillende lijnen loopt, gebruiken we \verb|\begin{align}|. Het linkerlid staat voor het symbool \texttt{\&} en het rechterlid staat erna. De ampersand zorgt ervoor dat het linker- en rechterlid mooi uitgelijnd worden. Er worden standaard labels (2), (3), etc. geplaatst, maar deze kunnen we onderdrukken door een \texttt{*}-symbool toe te voegen aan het begin en einde van de \texttt{align}-environment.
+		
+	\begin{align*}
+		1 & = \sqrt{1} \\
+			& = \sqrt{ (-1)(-1) } \\
+			& = i \cdot i \\
+			& = -1
+	\end{align*}
+	
+	\section{Getallen}
+	
+	Getallen zien er anders tussen \textit{tekst-modus} en \textit{math-modus}. Als we ze in een \verb*|\num{...}| steken, zullen ze er hetzelfde uitzien. Om een komma als decimaalteken in te stellen, voegen we onder \verb*|\usepackage{siunitx}| nog een extra lijn, namelijk \verb*|\sisetup{output-decimal-marker={,}}|, toe waarin we dit instellen.
+	
+	We vergelijken hetzelfde getal in de twee modi en daarna een ander (lees: groter) getal in de \verb*|\num{}|-environment:
+	
+	-1234.56789
+	
+	\(-1234.56789\)
+	
+	\num{-1234234.56789}
+	
+	\section{Roman of Italic}
+	
+	Er zijn een aantal uitzonderingen op de regel ``als het in \textit{math-mode} moet, moet het cursief''. 
+	
+	\subsection{Wiskundige objecten van meerdere symbolen}
+	
+	Namen van wiskundige objecten, die meerdere symbolen bevatten, moeten roman staan en dus niet cursief. Anders wordt de uitdrukking door \LaTeX{} gezien als een product van meerdere wiskundige symbolen.
+	
+	\(cos x\) is geen juiste notatie voor de cosinus van \(x\), maar \(\cos x\) wel.
+	
+	\subsection{Nieuwe wiskundige objecten definiëren}
+	
+	\LaTeX{} kent geen Bgtan, enkel de Engelse variant arctan. We zullen de boogtangens in de preambule van ons document nog moeten definiëren met de lijn \verb*|\DeclareMathOperator{\Bgtan}{Bgtan}|.
+	
+	\[\Bgtan\]
+	
+	\subsection{Subscripten}
+	
+	De massa van de aarde wordt niet mooi weergegeven op volgende manier: \(m_{aarde}\). Om duidelijk te maken aan \LaTeX{} dat het woord `aarde' gewoon tekst is, gebruiken we het commando \verb*|\text{aarde}|.
+	\[m_\text{aarde}\]
+	
+	\subsection{SI-eenheden}
+	
+	SI-eenheden zetten we met het \texttt{siunitx}-pakket en bijhorend commando \verb*|\si{...}|.
+	
+	Vergelijk:
+	
+	 \(kg.m/s^2\)
+	 
+	 \si{kg.m/s^2}
+	 
+	 Voor getallen met een eenheid gebruiken we \verb*|\SI{eenheid}{grootheid}|.
+	 
+	 \SI{9.81}{m/s^2}
+	 
+	 \subsection{Chemische formules}
+	 
+	 Voor chemische formules met consistente layouts gebruiken we het \texttt{mhchem}-pakket en bijhorend commando \verb*|\ce{...}|
+	 
+	 \ce{H_2O}
+	 
+	 \newpage
+	 
+	 \section{Formules}
+	 
+	 \subsection{Accolades en dots}
+	 
+	 \verb*|\underbrace| zorgt voor de mooie accolade.
+	 
+	 \verb*|\cdot| zorgt voor een maal-teken.
+	 
+	 \verb*|\ldots| zorgt voor 3 low dots.
+	 
+	Verder worden alle spaties in math-modus opgegeten, de spatie na \textit{n} en voor `keer' moet dus in het \verb*|\text| commando toegevoegd worden.
+	 
+	 \[x^n = \underbrace{x \cdot x \cdot \ldots \cdot x}_{n \text{ keer}}\]
+	 
+	 \subsection{Limieten}
+	 
+	 Nu maken we iets met een limiet:
+	 
+	 \[\lim_{x\to0} \frac{\sin x}{x} = 1\]
+	 
+	 \(\lim_{x\to0} \frac{\sin x}{x} = 1\)
+	 
+	 \subsection{Reeksen}
+	 
+	 \[\sum_{n=0}^{+\infty}\frac{1}{2^n} = 2 \]
+	 
+	 \(\sum_{n=0}^{+\infty}\frac{1}{2^n} = 2\)
+	 
+	 \subsection{Integralen}
+	 
+	 \[ \left(\int_a^x f(t)dt\right)' = f(x) \]
+	 
+	 \((\int_a^x f(t)dt)' = f(x)\)
+	 
+	 \section{Matrices}
+	 
+	 \texttt{tabular} en \texttt{array} zijn qua syntax exact hetzelfde, maar \texttt{tabular} heeft tekst in elke cel en moet in een tekst-omgeving gebruikt worden. \texttt{array}, aan de andere kant, kan in elke cel wiskunde hebben, en moet voorkomen in een math-omgeving.
+	 
+	\texttt{array} zal nog geen haakjes voorzien voor de matrix, die moeten we zelf toevoegen. Als we ze gewoon rond de environment zetten, zullen ze te klein zijn. Door \verb*|\left| voor het haakje of de vierkante haak te zetten, zal eerst de uitdrukking die na het haakje komt uitgerekend worden, en zal \LaTeX{} daarna de hoogte van het haakje aanpassen naar de hoogte van deze uitdrukking.
+	 
+	 Gekende notatie:
+	 \( \left[ \begin{array}{ll}
+	 	a_{11} & a_{12} \\
+	 	a_{21} & a_{22}
+	 \end{array} \right]\)
+	 
+	 Determinant:
+	\( \left| \begin{array}{ll}
+	 	a_{11} & a_{12} \\
+	 	a_{21} & a_{22}
+	 \end{array} \right|\)
+	 
+	 Unief-notatie met ronde haakjes:
+	 \(\left(\begin{array}{ll}
+	 	a_{11} & a_{12} \\
+	 	a_{21} & a_{22}
+	 \end{array} \right)\)
+	 
+	 Norm met dubbele streep \verb?\|?
+	 	\( \left\| \begin{array}{ll}
+	 	a_{11} & a_{12} \\
+	 	a_{21} & a_{22}
+	 \end{array} \right\| \)
+	 
+	 \section{Meervoudig functievoorschrift met arrays}
+	 
+	 Voor de accolade moeten we een \verb*|\| zetten. `Groter dan of gelijk aan' doen we met \verb*|\geq| en `kleiner dan of gelijk aan' met \verb*|\leq|. We hebben enkel een beginaccolade en dus geen eindaccolade. We moeten echter wel zowel \verb*|\left| als \verb*|\right| gebruiken. Aangezien er niets mag volgen na \verb*|\right|, gebruiken we een punt als \textit{placeholder}. Voor de verzameling van de reële getallen gebruiken we \textit{blackboard bold}, dat doen we met het commando \verb*|\mathbb{...}|.
+	 
+	 \[ |x| : \mathbb{R}\to \mathbb{R} : x \mapsto \left\{  
+	 	\begin{array}{ll}
+	 		x & \text{als } x \geq 0 \\
+	 		-x & \text{als } x<0
+	 	\end{array}
+	 	\right. \]
+	 	
+	 	\section{Zelf commando's maken}
+	 	
+	 	Aangezien sommige commando's zoals \verb*|\mathbb{R}| heel lang zijn om te typen, kunnen we ook zelf commando's ofwel \textit{macros} maken. Dit doen we meestal in de preambule.
+	 	
+	 	\subsection{Blackboard bold}
+	 	
+	 	\verb*|\newcommand{\R}{\mathbb{R}}|
+	 	
+	 	\newcommand{\R}{\mathbb{R}}
+	 	
+	 	\subsection{Norm van een vector}
+	 	
+	 	\(  \left\| \vec{v} \right\| \) duurt heel lang om te typen. Daarom kunnen we een nieuw commando (of nieuwe \textit{macro}) definiëren met een argument. We maken eerst duidelijk aan \LaTeX{} hoeveel argumenten we verwachten. Deze argumenten kunnen we vervolgens aanroepen met een \textit{hash}-symbool: 
+	 	
+	 	\verb?\newcommand{\norm}[1]{\left\| #1 \right\|}?
+	 	\newcommand{\norm}[1]{\left\| #1 \right\|}
+	 	
+	 	\[ \norm{\vec{v}} = 69 \]
+	 	
+	 	\newpage
+	 	\subsection{Partiële afgeleide}
+	 	
+	 	Dit keer hebben we niet 1, maar twee argumenten.
+	 	
+	 	\verb?\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}?
+	 	
+	 	\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+	 	
+	 	\[ \pd{f(x)}{x} \]
+	 	
+	 	\section{Voor de rest...}
+	 	
+	 	We kunnen eigen environments aanmaken met \verb*|\newenvironment|. We kunnen bewijzen, stellingen, eigenschappen, voorbeelden, etc. nummeren met het commando \verb*|\newtheorem|. Er bestaat ook een \verb*|\proof|-environment die het vierkante blokje zet na een bewijs.
+	
+\end{document}
+
+
+
+
