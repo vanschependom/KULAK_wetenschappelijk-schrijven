@@ -1,0 +1,144 @@
+\documentclass
+[kulak] % [kulak|kul|kuleuven-brugge,handout|outline|]
+{kulakbeamer}
+
+\usepackage[dutch]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+\title[MEBP]{Mijn eerste Beamer-presentatie}
+\subtitle{Ondertitel}
+\author[VVS]{Vincent Van Schependom} 
+\institute[Kulak]{KU Leuven Kulak}
+\date{Academiejaar 2023 -- 2024}
+
+\AtBeginSection[]{
+	\begin{frame}
+		\frametitle{Overzicht}
+		\hfill \large\parbox{.95\textwidth}{\tableofcontents[currentsection,hideothersubsections]}
+	\end{frame}
+}
+
+\renewcommand{\outlineTitle}{Overzicht} % enkel met optie outline
+
+\begin{document}
+	
+	\begin{titleframe}
+		\titlepage
+	\end{titleframe}
+	
+	% Outlineframe heeft donkere achtergrond
+	\begin{outlineframe}[Overzicht]
+		\tableofcontents
+	\end{outlineframe}
+	
+	% % % Here you go  % % % 
+	
+	\section{Inleiding}
+	
+	% Gewone frame heeft lichte achtergrond
+	\begin{frame}
+		\frametitle{Inleidende frame}
+		Inleidende tekst.
+	\end{frame}
+	
+	\section[Korte titel]{Lange hoofdstuktitel}
+	
+	\begin{frame}
+		\frametitle{Frame-titel}
+		
+		\begin{block}{Priemgetal}
+			Een natuurlijk getal is een priemgetal als het precies twee delers heeft, één en zichzelf.
+		\end{block}
+		
+		\begin{alertblock}{Een}
+			Het getal één is geen priemgetal.
+		\end{alertblock}
+		
+		\begin{exampleblock}{Twee}
+			Twee is een heel bijzonder priemgetal (an odd prime).
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{Kolommen}
+	
+		\begin{columns}
+			\column{.5\textwidth}
+			\begin{figure}
+				\includegraphics[width=.5\columnwidth]{vincent}
+			\end{figure}
+			\column{.5\textwidth}
+			\begin{itemize}
+				\item Vincent Van Schependom
+				\item Student informatica
+				\item Geen West-Vlaming
+			\end{itemize}
+		\end{columns}
+	
+	\end{frame}
+	
+	\section{Pauzeren}
+	
+	\begin{frame}{Special effects}
+		Dit staat er eerst
+		
+		\pause
+		
+		Dit staat er pas later
+		
+		\pause
+		
+		Dit staat er nog later
+	\end{frame}
+	
+	\section{Overlays}
+	
+	\begin{frame}{Speciale types pauzes}
+		Dit staat er eerst
+		
+		\uncover<4>{Dit staat er later (uncover) en er wordt altijd plaats vrijgehouden hiervoor}
+		
+		\only<3>{Dit staat er niet altijd (only) en er wordt \textbf{geen} plaats vrijgehouden}
+		
+		\alert<2>{Dit wordt benadrukt (alert)}
+	\end{frame}
+	
+	\begin{frame}{Verschrikkelijke itemize pauzes}
+		De \texttt{<} en \texttt{>} tekens zijn voor de slidespecificaties.
+		\begin{itemize}
+			\item<1-> Een
+			\item<2-> Twee \hypertarget<2>{targetlabel2}{}
+			\item<3-> Drie
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Geautomatiseerde verschrikkelijke itemize pauzes}
+		We kunnen ook aan de \texttt{itemize} een argument meegeven waarin we de slidespecificaties definiëren, bijvoorbeeld \texttt{[<+->]}
+		\begin{itemize}[<+->]
+			\item Een
+			\item Twee \hypertarget{targetlabel}{X}
+			\item Drie
+		\end{itemize}
+	\end{frame}
+	
+	\section{Kruisverwijzingen}
+	
+	\begin{frame}{Hypertarget}
+		\begin{itemize}
+			\item We willen verwijzen naar een specifiek frame op een specifiek moment, wanneer een bepaalde bullet point bijvoorbeeld nog niet getoond is.
+			
+			\item Dit kan met \texttt{hypertarget} en \texttt{hyperlink}.
+			
+			\item \hyperlink{targetlabel}{Dit} gaat bijvoorbeeld naar het tweede item van de automatische.
+			
+			\item \hyperlink{targetlabel2}{Dit} gaat naar het tweede item van de handmatige.
+		\end{itemize}
+	\end{frame}
+	
+	\section{Besluit}
+	\begin{frame}
+		\frametitle{Afsluitende frame}
+		Afsluitende tekst.
+	\end{frame}
+	
+\end{document}

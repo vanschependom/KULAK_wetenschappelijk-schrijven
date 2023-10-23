@@ -1,0 +1,7 @@
+\babel@toc {dutch}{}\relax 
+\beamer@sectionintoc {1}{Inleiding}{3}{0}{1}
+\beamer@sectionintoc {2}{Lange hoofdstuktitel}{5}{0}{2}
+\beamer@sectionintoc {3}{Pauzeren}{8}{0}{3}
+\beamer@sectionintoc {4}{Overlays}{12}{0}{4}
+\beamer@sectionintoc {5}{Kruisverwijzingen}{23}{0}{5}
+\beamer@sectionintoc {6}{Besluit}{25}{0}{6}
